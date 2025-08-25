@@ -62,16 +62,16 @@ const Dashboard = () => {
                         <Button type="primary" onClick={handleSearch}>Search</Button>
 
                     </div>
-                    <div className='mt-4 flex items-center justify-center'>
-                        <p className='mr-2'>Refresh ເພື່ອຮັບຂໍ້ມູນເດີມຈາກ dummyjson.com API</p>
-                        <Button type="primary" onClick={handleRefresh}>Refresh</Button>
+                    <div className=' flex items-center justify-center'>
+                        <p className='mr-2 mt-2'>Refresh ເພື່ອຮັບຂໍ້ມູນເດີມຈາກ dummyjson.com API</p>
+                        <Button className='mt-2' type="primary" onClick={handleRefresh}>Refresh</Button>
 
                     </div>
                 </div>
 
                 {/* image */}
                 <div className='w-[200px] hidden md:block'>
-                    <Image src="/src/assets/image/​cloud.png" preview={false} alt="Dashboard" />
+                    <Image src="/src/assets/image/imagecloud.png" preview={false} alt="Dashboard" />
                 </div>
             </div>
 
