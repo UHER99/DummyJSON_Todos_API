@@ -105,7 +105,7 @@ const ListTodos = () => {
                     return (
                         <div
                             key={todo.id}
-                            className="flex gap-6 items-center border border-gray-300 rounded-[10px] p-4 m-4 justify-between"
+                            className="flex shadow-lg gap-6 items-center border border-gray-300 rounded-[10px] p-4 m-4 justify-between"
                         >
                             {/* Left side: todo text */}
                             <div className="flex items-start gap-2 text-[14px] w-2/3">
@@ -134,7 +134,7 @@ const ListTodos = () => {
                                             }}
                                         >
                                             <div
-                                                className={`flex justify-center items-center gap-1 px-3 py-1 text-white rounded-[2px] cursor-pointer ${todo.completed
+                                                className={`flex justify-center items-center shadow-lg gap-1 px-3 py-1 text-white rounded-[5px] cursor-pointer ${todo.completed
                                                         ? "bg-green-600 hover:bg-green-700"
                                                         : "bg-red-600 hover:bg-red-700"
                                                     }`}
@@ -146,14 +146,14 @@ const ListTodos = () => {
                                     </div>
 
                                     {/* Edit / Delete */}
-                                    <div className="flex gap-4 text-gray-400 text-xl whitespace-nowrap">
+                                    <div className="flex gap-4  text-gray-400 text-xl whitespace-nowrap">
                                         <FiEdit
-                                            className="hover:text-green-600 cursor-pointer"
+                                            className="hover:text-green-600 cursor-pointer shadow-lg"
                                             onClick={() => showModal(todo)}
                                         />
                                         <RiDeleteBin7Line
                                             onClick={() => showModalDelete(todo.id)}
-                                            className="hover:text-red-600 cursor-pointer"
+                                            className="hover:text-red-600 cursor-pointer shadow-lg"
                                         />
                                     </div>
                                 </div>

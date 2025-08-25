@@ -29,7 +29,7 @@ const Sidebar = () => {
                 {/* Top section */}
                 <div className="flex md:flex md:flex-col  items-center justify-around md:items-center space-x-4  md:space-y-10">
                     {/* Logo */}
-                    <div className="w-[60px] h-[50px] md:w-[100px] md:h-[100px] p-2 ml-2 md:ml-0 bg-white rounded-full flex items-center justify-center">
+                    <div className="w-[60px] shadow-lg h-[50px] md:w-[100px] md:h-[100px] p-2 ml-2 md:ml-0 bg-white rounded-full flex items-center justify-center">
                         <Image
                             src={listimage}
                             alt="Logo"
@@ -45,7 +45,7 @@ const Sidebar = () => {
                                 <NavLink
                                     to={item.path}
                                     className={({ isActive }) =>
-                                        `flex items-center gap-3 px-4 py-2 rounded-lg transition-colors w-full ${isActive
+                                        `flex shadow-lg items-center gap-3 px-4 py-2 rounded-lg transition-colors w-full ${isActive
                                             ? "bg-gradient-to-r from-white to-blue-900 text-blue-800"
                                             : "text-white hover:bg-gray-700"
                                         }`

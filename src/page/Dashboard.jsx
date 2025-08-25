@@ -52,7 +52,7 @@ const Dashboard = () => {
                 {/* search */}
                 <div className='flex-1 space-y-2'>
                     <p>ຄົ້ນຫາ User ທີ່ນີ່ :</p>
-                    <div className='flex gap-2'>
+                    <div className='flex gap-2 shadow'>
                         <Input
                             type="number"
                             placeholder="ໃສ່ userId..."
@@ -94,7 +94,7 @@ const Dashboard = () => {
                         return (
                             <Link
                                 to={`/user/${userId}/${profileImg.split('/').pop()}`}>
-                                <Card key={userId} className="p-2 shadow-lg hover:bg-gray-100">
+                                <Card key={userId} className="p-2  shadow-lg hover:bg-gray-100">
                                     <div className="flex flex-col items-center text-[14px]">
                                         <Image src={profileImg} width={50} preview={false} />
                                         <p>UserID: {userId}</p>

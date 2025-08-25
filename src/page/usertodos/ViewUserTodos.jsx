@@ -52,11 +52,11 @@ const ViewUserTodos = () => {
 
     return (
         <div>
-            <hr className="my-2 border-t border-2 border-gray-500" />
+            <hr className="my-2 border-t border-2 shadow-lg border-gray-500" />
 
             <div className="flex flex-col lg:flex-row gap-4">
                 {/* Profile Panel */}
-                <div className="flex lg:flex-col w-full lg:w-[210px] lg:min-h-screen bg-slate-200 rounded-[10px]">
+                <div className="flex lg:flex-col w-full lg:w-[210px] shadow-lg lg:min-h-screen bg-slate-200 rounded-[10px]">
                     <div className="pt-4 flex flex-col items-center">
                         <p>My Profile</p>
                         <div className="w-[150px] h-[150px] mx-auto mt-4 rounded-full overflow-hidden border-2 p-4 border-gray-100">
@@ -66,9 +66,9 @@ const ViewUserTodos = () => {
                     </div>
 
                     {/* Add New Todo */}
-                    <div className="w-full p-6 mt-6 flex flex-col items-center justify-center space-y-4">
+                    <div className="w-full  p-6 mt-6 flex flex-col items-center justify-center space-y-4">
                         <p>Add New Todo</p>
-                        <div className="w-full h-[140px] bg-white hover:bg-slate-300 rounded-[10px] flex items-center justify-center">
+                        <div className="w-full h-[140px] shadow-lg bg-white hover:bg-slate-300 rounded-[10px] flex items-center justify-center">
                             <IoIosAddCircleOutline
                                 size={50}
                                 className="text-gray-500 hover:text-white cursor-pointer"
@@ -85,6 +85,7 @@ const ViewUserTodos = () => {
                             cancelText="ຍົກເລີກ"
                         >
                             <Input
+                            className="shadow-lg"
                                 placeholder="ໃສ່ Todo ໃໝ່"
                                 value={newTodo}
                                 onChange={(e) => setNewTodo(e.target.value)}
@@ -98,7 +99,7 @@ const ViewUserTodos = () => {
                     <div className="flex justify-around gap-6">
                         <div
                             onClick={() => setStatusTodos("1")}
-                            className={`w-full h-[100px] bg-slate-200 hover:bg-slate-300 ${searchText ? "bg-slate-200" : statusTodos === "1" ? "bg-slate-300" : ""
+                            className={`w-full h-[100px] shadow-lg bg-slate-200 hover:bg-slate-300 ${searchText ? "bg-slate-200" : statusTodos === "1" ? "bg-slate-300" : ""
                                 } rounded-[10px] flex items-center justify-center`}
                         >
                             <div className="flex flex-col items-center">
@@ -115,7 +116,7 @@ const ViewUserTodos = () => {
                         </div>
                         <div
                             onClick={() => setStatusTodos("2")}
-                            className={`w-full h-[100px] bg-slate-200 hover:bg-slate-300 ${searchText ? "bg-slate-200" : statusTodos === "2" ? "bg-slate-300" : ""
+                            className={`w-full h-[100px] shadow-lg bg-slate-200 hover:bg-slate-300 ${searchText ? "bg-slate-200" : statusTodos === "2" ? "bg-slate-300" : ""
                                 } rounded-[10px] flex items-center justify-center`}
 
                         >
@@ -132,7 +133,7 @@ const ViewUserTodos = () => {
                         </div>
                         <div
                             onClick={() => setStatusTodos("3")}
-                            className={`w-full h-[100px] bg-slate-200 hover:bg-slate-300 ${searchText ? "bg-slate-200" : statusTodos === "3" ? "bg-slate-300" : ""
+                            className={`w-full h-[100px] shadow-lg bg-slate-200 hover:bg-slate-300 ${searchText ? "bg-slate-200" : statusTodos === "3" ? "bg-slate-300" : ""
                                 } rounded-[10px] flex items-center justify-center`}
                         >
                             <div className="flex flex-col items-center">
@@ -148,12 +149,12 @@ const ViewUserTodos = () => {
                     </div>
 
                     {/* List Detail */}
-                    <div className="mt-6">
+                    <div className="mt-6 ">
                         <div>
                             <p className="text-[16px]">My list Todos</p>
-                            <div className="flex justify-center items-center ">
-                                <p>ຄົ້ນຫາ Text Todos ທີ່ນີ່ </p>
-                                <div className="flex gap-2">
+                            <div className="flex justify-center items-center  ">
+                                <p className="mr-2">ຄົ້ນຫາ Text Todos ທີ່ນີ່  </p>
+                                <div className="flex gap-2 shadow-lg">
                                     <Input
                                         placeholder="ໃສ່ Text Todos..."
                                         suffix={<SearchOutlined />}
