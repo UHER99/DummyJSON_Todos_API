@@ -51,8 +51,6 @@ It demonstrates practical skills in:
 
 ### 🔹 Extra Tools
 - **Excel export** (`xlsx`)
-- **Leaflet + React-Leaflet** integration for interactive map module
-- **Day.js** for date handling
 
 ---
 
@@ -84,3 +82,7 @@ Base URL: `${VITE_BASE_URL_API}` → defined in `.env`
 📌 Example `.env` file:
 ```env
 VITE_BASE_URL_API=https://dummyjson.com
+
+## For Run Project 
+- npm install
+- npm run dev
