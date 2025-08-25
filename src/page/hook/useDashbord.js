@@ -12,11 +12,18 @@ export const useDashboard = () => {
   const { userId, setUserId } = userSearchUserId();
 
   const { data: userIdTodos } = useGetUserIdTods(userId);
+  const newTodosStore = useCRUDStore((state) => state.newTodos);
+  const todosStoreDelete = useCRUDStore((state) => state.todosStoreDelete);
 
   // ดึง todos จาก store (merge กับ API)
   const { todosStore } = useCRUDStore.getState();
 
-  const todosApi = userIdTodos ? userIdTodos?.todos || [] : data?.todos || [];
+  const todosdate = [...newTodosStore, ...(data?.todos || [])];
+
+  const todosApi = [
+    ...newTodosStore,
+    ...(userIdTodos ? userIdTodos?.todos || [] : data?.todos || []),
+  ];
 
   const todos =
     todosApi?.map((todo) => {
@@ -24,7 +31,9 @@ export const useDashboard = () => {
       return existInStore ? existInStore : todo;
     }) || [];
 
-
+  const reportTodos = todosdate.filter(
+    (todo) => !todosStoreDelete.includes(todo.id)
+  );
   // Get unique userIds and sort ascending
   const userIds = [...new Set(todos.map((todo) => todo.userId))].sort(
     (a, b) => a - b
@@ -52,5 +61,6 @@ export const useDashboard = () => {
     startIndex,
     endIndex,
     pageSize,
+    reportTodos,
   };
 };

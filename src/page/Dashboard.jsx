@@ -13,6 +13,7 @@ const Dashboard = () => {
     const { currentPage, setCurrentPage } = userCurrentPage();
     const { userId, setUserId } = userSearchUserId();
     const { clearTodos } = useCRUDStore();
+    const todosStoreDelete = useCRUDStore((state) => state.todosStoreDelete);
 
     const { currentUsers, isLoading, isError, profileImages, userIds, todos, startIndex, pageSize } = useDashboard();
 
@@ -51,11 +52,13 @@ const Dashboard = () => {
                     <p>ຄົ້ນຫາ User ທີ່ນີ່ :</p>
                     <div className='flex gap-2'>
                         <Input
+                            type="number"
                             placeholder="ໃສ່ userId..."
                             suffix={<SearchOutlined />}
                             value={userId}
-                            onChange={(e) => setUserId(e.target.value)}
+                            onChange={(e) => setUserId(e.target.value.replace(/\D/g, ""))}
                         />
+
                         <Button type="primary" onClick={handleSearch}>Search</Button>
 
                     </div>
@@ -67,7 +70,7 @@ const Dashboard = () => {
                 </div>
 
                 {/* image */}
-                <div className='w-[200px]'>
+                <div className='w-[200px] hidden md:block'>
                     <Image src="/src/assets/image/​cloud.png" preview={false} alt="Dashboard" />
                 </div>
             </div>
@@ -78,11 +81,12 @@ const Dashboard = () => {
 
             {/* Cards */}
             {userIds.length !== 0
-                ? <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4 mt-4'>
+                ? <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4 mt-4'>
                     {currentUsers.map((userId, index) => {
-                        const userTodos = todos.filter(todo => todo.userId === userId);
-                        const completedCount = userTodos.filter(todo => todo.completed === true).length;
-                        const notCompletedCount = userTodos.filter(todo => todo.completed === false).length;
+
+                        const userTodos = todos.filter(todo => todo.userId === userId && !todosStoreDelete.includes(todo.id));
+                        const completedCount = userTodos.filter(todo => todo.completed === true && !todosStoreDelete.includes(todo.id)).length;
+                        const notCompletedCount = userTodos.filter(todo => todo.completed === false && !todosStoreDelete.includes(todo.id)).length;
                         const profileImg = profileImages[(startIndex + index) % profileImages.length];
 
                         return (

@@ -1,5 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import {
+  CreateTodosApi,
   DeleteTodosApi,
   GetAllTodosApi,
   GetUserIdTodosApi,
@@ -35,6 +36,7 @@ export const useGetUserIdTods = (id) => {
 };
 
 export const useUpdateUserIdTods = () => {
+  const queryClient = useQueryClient();
   const { todosStore, saveTodo } = useCRUDStore();
   return useMutation({
     mutationKey: ["update-todo"],
@@ -42,6 +44,7 @@ export const useUpdateUserIdTods = () => {
       return await UpdateUserIdTodosApi(id, data);
     },
     onSuccess: (data) => {
+      queryClient.invalidateQueries(key);
       saveTodo(data);
       message.success("Todo updated successfully");
     },
@@ -67,6 +70,38 @@ export const useDeleteTodos = () => {
     },
     onError: (error) => {
       console.error("Error deleting todo:", error);
+    },
+  });
+};
+
+export const useCreateTodos = () => {
+  const queryClient = useQueryClient();
+  const addTodos = useCRUDStore((state) => state.addTodos);
+
+  function random3Digits() {
+    const num = Math.floor(Math.random() * (1000 - 300)) + 300; // 300–999
+    return num;
+  }
+
+  return useMutation({
+    mutationKey: ["create-todo"],
+    mutationFn: async (data) => {
+      return await CreateTodosApi(data);
+    },
+    onSuccess: (data) => {
+      queryClient.invalidateQueries(key);
+
+      const todoWithRandomId = {
+        ...data,
+        id: random3Digits(),
+        userId: Number(data.userId),
+      };
+      addTodos(todoWithRandomId);
+
+      message.success("Todo created successfully");
+    },
+    onError: (error) => {
+      console.error("Error creating todo:", error);
     },
   });
 };

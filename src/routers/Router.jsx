@@ -1,8 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Dashboard from "../page/Dashboard.jsx";
 import Sidebar from "../page/Sidebar.jsx";
-import Report from "../page/Report.jsx";
 import ViewUserTodos from "../page/usertodos/ViewUserTodos.jsx";
+import Report from "../page/reports/Report.jsx";
 
 const routes = [
     {

@@ -13,9 +13,13 @@ export const useListTodos = (userId) => {
   const { todosStore } = useCRUDStore.getState();
   const todosStoreDelete = useCRUDStore((state) => state.todosStoreDelete);
 
+
+  const newTodosStore = useCRUDStore((state) => state.newTodos);
+  const newTodos = newTodosStore.filter((todo) => todo.userId == userId);
+  const includesTodos = [...newTodos, ...(data?.todos || [])];
   // merge todos API กับ store
   const dataTodosApi =
-    data?.todos
+    includesTodos
       .map((todo) => {
         const existInStore = todosStore.find((t) => t.id === todo.id);
         return existInStore ? existInStore : todo;
@@ -28,6 +32,7 @@ export const useListTodos = (userId) => {
   const completedTodosApi = dataTodosApi.filter(
     (todo) => todo.completed === true && !todosStoreDelete.includes(todo.id)
   );
+
   const notCompletedTodosApi = dataTodosApi.filter(
     (todo) => todo.completed === false && !todosStoreDelete.includes(todo.id)
   );
@@ -63,7 +68,7 @@ export const useListTodos = (userId) => {
     isError,
     completedTodos,
     notCompletedTodos,
-    data,
+    dataTodosApi: data,
     dataTodosApi,
   };
 };

@@ -5,4 +5,5 @@ export default class ApiPath {
   static getUserIdTodos = (id) => `${baseUrl}/todos/user/${id}`;
   static updateUserIdTodos = (id) => `${baseUrl}/todos/${id}`;
   static deleteTodos = (id) => `${baseUrl}/todos/${id}`;
+  static createTodos = `${baseUrl}/todos/add`;
 }

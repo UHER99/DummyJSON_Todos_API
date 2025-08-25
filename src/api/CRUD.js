@@ -44,3 +44,14 @@ export const DeleteTodosApi = async (id) => {
     throw error;
   }
 };
+
+export const CreateTodosApi = async (data) => {
+  try {
+    const response = await axios.post(ApiPath.createTodos, data);
+    console.log("CreateTodosApi => ", response?.data);
+    return response?.data;
+  } catch (error) {
+    console.error("Error Res In TodosApi => ", error);
+    throw error;
+  }
+};

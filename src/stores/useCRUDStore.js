@@ -6,9 +6,28 @@ export const useCRUDStore = create(
   persist(
     (set, get) => ({
       todosStore: [],
-
       // เก็บ todo ที่ถูกลบ
       todosStoreDelete: [],
+
+      newTodos: [],
+      addTodos: (todo) =>
+        set((state) => {
+          const index = state.newTodos.findIndex((t) => t.id === todo.id);
+          if (index !== -1) {
+            // update todo เดิม
+            const updatedTodos = [...state.newTodos];
+            updatedTodos[index] = todo;
+            return { newTodos: updatedTodos };
+          } else {
+            // add ใหม่
+            return { newTodos: [...state.newTodos, todo] };
+          }
+        }),
+
+      removeNewTodo: (id) =>
+        set((state) => ({
+          newTodos: state.newTodos.filter((todo) => todo.id !== id),
+        })),
 
       // add or update todo by id
       saveTodo: (newTodo) => {
@@ -38,7 +57,8 @@ export const useCRUDStore = create(
       },
 
       // clear all todos
-     clearTodos: () => set({ todosStore: [], todosStoreDelete: [] }),
+      clearTodos: () =>
+        set({ todosStore: [], todosStoreDelete: [], newTodos: [] }),
 
       // clear deleted list
       clearDeleted: () => set({ todosStoreDelete: [] }),

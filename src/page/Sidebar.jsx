@@ -21,31 +21,31 @@ const Sidebar = () => {
     ];
 
     return (
-        <div className="flex ">
+        <div className="flex flex-col md:flex-row min-h-screen">
             {/* Sidebar */}
-            <div className="bg-blue-900 w-64 min-h-screen flex flex-col justify-between py-10">
+            <div className="bg-blue-900 w-full md:w-64 flex flex-col justify-between py-6 md:py-10">
                 {/* Top section */}
-                <div className="flex flex-col items-center space-y-10">
+                <div className="flex md:flex md:flex-col  items-center justify-around md:items-center space-x-4  md:space-y-10">
                     {/* Logo */}
-                    <div className="w-[100px] h-[100px] p-2 bg-white rounded-full">
+                    <div className="w-[60px] h-[50px] md:w-[100px] md:h-[100px] p-2 ml-2 md:ml-0 bg-white rounded-full flex items-center justify-center">
                         <Image
                             src="/src/assets/icons/logo_todos.png"
                             alt="Logo"
                             preview={false}
+                            className="object-contain"
                         />
                     </div>
 
                     {/* Sidebar menu */}
-                    <ul className="w-full">
+                    <ul className="flex flex-row md:flex-col w-full justify-center md:justify-start gap-3 md:gap-2">
                         {sidebarList.map((item) => (
-                            <li key={item.id}>
+                            <li key={item.id} className="w-full">
                                 <NavLink
                                     to={item.path}
                                     className={({ isActive }) =>
-                                        `flex items-center gap-3 px-6 py-3 cursor-pointer rounded-lg transition-colors ${
-                                            isActive
-                                                ? "bg-gradient-to-r from-white to-blue-900 text-blue-800"
-                                                : "text-white hover:bg-gray-700"
+                                        `flex items-center gap-3 px-4 py-2 rounded-lg transition-colors w-full ${isActive
+                                            ? "bg-gradient-to-r from-white to-blue-900 text-blue-800"
+                                            : "text-white hover:bg-gray-700"
                                         }`
                                     }
                                 >
@@ -57,20 +57,21 @@ const Sidebar = () => {
                     </ul>
                 </div>
 
-                {/* Bottom image as button */}
-                <div className="w-full px-6">
+                {/* Bottom image/button */}
+                <div className="w-full px-6 mt-auto hidden md:block">
                     <button className="w-full rounded-lg overflow-hidden focus:outline-none">
                         <Image
                             src="/src/assets/image/tododashbordimage.png"
                             alt="Bottom Button"
                             preview={false}
+                            className="object-cover"
                         />
                     </button>
                 </div>
             </div>
 
             {/* Main content */}
-            <div className="flex-1 bg-gray-100 p-6">
+            <div className="flex-1 bg-gray-100 p-6 min-h-screen">
                 <Outlet />
             </div>
         </div>
