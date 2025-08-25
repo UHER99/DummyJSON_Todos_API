@@ -33,15 +33,15 @@ It demonstrates practical skills in:
   - Text
   - Completion status
   - User ID
-- Visual distinction: ✅ Completed vs ⏳ Pending
-- Summary: total todos + completed count
+   -Use image to match User ID for profile
+
 
 ### 🔹 Todo Management
 - Mark todos complete/incomplete
-- Create todos (form with validation)
-- Edit todos (inline / modal)
-- Delete todos with confirmation
-- Local store sync (Zustand) for optimistic UI
+- Create todos 
+- Edit todos 
+- Delete todos 
+- Local store sync (Zustand) for UI
 
 ### 🔹 Filtering & Search
 - Filter todos by **status** (All, Completed, Pending)
@@ -50,7 +50,6 @@ It demonstrates practical skills in:
 - Clear filters easily
 
 ### 🔹 Extra Tools
-- **PDF export** (`jsPDF` + `html2canvas`)
 - **Excel export** (`xlsx`)
 - **Leaflet + React-Leaflet** integration for interactive map module
 - **Day.js** for date handling
@@ -63,9 +62,9 @@ It demonstrates practical skills in:
 - **UI**: [Ant Design](https://ant.design/), [TailwindCSS](https://tailwindcss.com/), [FontAwesome](https://fontawesome.com/), [React Icons](https://react-icons.github.io/react-icons/)
 - **State Management**: [Zustand](https://zustand-demo.pmnd.rs/)
 - **Data Fetching**: [Axios](https://axios-http.com/), [React Query (TanStack)](https://tanstack.com/query/latest)
-- **Data Export**: [jsPDF](https://github.com/parallax/jsPDF), [html2canvas](https://html2canvas.hertzen.com/), [xlsx](https://sheetjs.com/)
-- **Mapping**: [Leaflet](https://leafletjs.com/), [React Leaflet](https://react-leaflet.js.org/)
-- **Dates**: [Day.js](https://day.js.org/)
+- **Data Export**:  [xlsx](https://sheetjs.com/)
+
+
 
 ---
 
