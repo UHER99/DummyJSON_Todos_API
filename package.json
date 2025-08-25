@@ -1,9 +1,9 @@
 {
-  "name": "packgae",
+  "homepage": "https://UHER99.github.io/DummyJSON_Todos_API",
+  "name": "package",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://UHER99.github.io/DummyJSON_Todos_API",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
