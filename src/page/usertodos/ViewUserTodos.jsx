@@ -153,7 +153,7 @@ const ViewUserTodos = () => {
                         <div>
                             <p className="text-[16px]">My list Todos</p>
                             <div className="flex justify-center items-center  ">
-                                <p className="mr-2">ຄົ້ນຫາ Text Todos ທີ່ນີ່  </p>
+                                <p className="mr-4">ຄົ້ນຫາ Text Todos ທີ່ນີ່  </p>
                                 <div className="flex gap-2 shadow-lg">
                                     <Input
                                         placeholder="ໃສ່ Text Todos..."
