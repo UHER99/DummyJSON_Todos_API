@@ -7,6 +7,7 @@ import { useDashboard } from './hook/useDashbord.js';
 import { BsDatabaseExclamation } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import { useCRUDStore } from '../stores/useCRUDStore.js';
+import cloudy from '/src/assets/image/cloudy.png';
 
 const Dashboard = () => {
     // Pagination state
@@ -70,8 +71,8 @@ const Dashboard = () => {
                 </div>
 
                 {/* image */}
-                <div className='w-[200px] hidden md:block'>
-                    <Image src="/src/assets/image/cloudy.png" preview={false} alt="Dashboard" />
+                <div className='w-[150px] hidden md:block'>
+                    <Image src={cloudy}  preview={false} alt="Dashboard" />
                 </div>
             </div>
 
