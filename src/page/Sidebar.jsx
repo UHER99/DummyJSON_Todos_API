@@ -61,7 +61,7 @@ const Sidebar = () => {
                 <div className="w-full px-6 mt-auto hidden md:block">
                     <button className="w-full rounded-lg overflow-hidden focus:outline-none">
                         <Image
-                            src="/src/assets/profile/tododashbordimage.png"
+                            src="/src/assets/profile/profile1.png"
                             alt="Bottom Button"
                             preview={false}
                             className="object-cover"
