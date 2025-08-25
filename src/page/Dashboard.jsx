@@ -71,7 +71,7 @@ const Dashboard = () => {
 
                 {/* image */}
                 <div className='w-[200px] hidden md:block'>
-                    <Image src="/src/assets/profile/profile2.png" preview={false} alt="Dashboard" />
+                    <Image src="/src/assets/image/cloudy.png" preview={false} alt="Dashboard" />
                 </div>
             </div>
 

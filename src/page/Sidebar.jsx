@@ -29,7 +29,7 @@ const Sidebar = () => {
                     {/* Logo */}
                     <div className="w-[60px] h-[50px] md:w-[100px] md:h-[100px] p-2 ml-2 md:ml-0 bg-white rounded-full flex items-center justify-center">
                         <Image
-                            src="/src/assets/icons/logo_todos.png"
+                            src="/src/assets/icons/list.png"
                             alt="Logo"
                             preview={false}
                             className="object-contain"
@@ -61,7 +61,7 @@ const Sidebar = () => {
                 <div className="w-full px-6 mt-auto hidden md:block">
                     <button className="w-full rounded-lg overflow-hidden focus:outline-none">
                         <Image
-                            src="/src/assets/profile/profile1.png"
+                            src="/src/assets/image/read.png"
                             alt="Bottom Button"
                             preview={false}
                             className="object-cover"
