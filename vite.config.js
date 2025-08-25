@@ -5,4 +5,9 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   base: "/DummyJSON_Todos_API/",
+  resolve: {
+    alias: {
+      src: path.resolve(__dirname, "src"),
+    },
+  },
 });

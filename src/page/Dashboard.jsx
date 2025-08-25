@@ -10,6 +10,7 @@ import { useCRUDStore } from '../stores/useCRUDStore.js';
 import cloudy from '/src/assets/image/cloudy.png';
 
 const Dashboard = () => {
+
     // Pagination state
     const { currentPage, setCurrentPage } = userCurrentPage();
     const { userId, setUserId } = userSearchUserId();
@@ -72,7 +73,7 @@ const Dashboard = () => {
 
                 {/* image */}
                 <div className='w-[150px] hidden md:block'>
-                    <Image src={cloudy}  preview={false} alt="Dashboard" />
+                    <Image src={cloudy} preview={false} alt="Dashboard" />
                 </div>
             </div>
 
