@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import Dashboard from "../page/Dashboard.jsx";
 import Sidebar from "../page/Sidebar.jsx";
 import ViewUserTodos from "../page/usertodos/ViewUserTodos.jsx";
@@ -27,6 +27,6 @@ const routes = [
 ];
 
 export const RouterComponent = () => {
-    const router = createBrowserRouter(routes);
+    const router = createHashRouter(routes); // ✅ change here
     return <RouterProvider router={router} />;
 };
