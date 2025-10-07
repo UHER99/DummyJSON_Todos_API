@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Todos App</string>
+    <string name="title_activity_main">Todos App</string>
+    <string name="package_name">com.uher.todosapp</string>
+    <string name="custom_url_scheme">com.uher.todosapp</string>
+</resources>

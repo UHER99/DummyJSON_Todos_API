@@ -1,19 +1,32 @@
 {
   "homepage": "https://UHER99.github.io/DummyJSON_Todos_API",
-  "name": "package",
+  "name": "todos-desktop-app",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "main": "electron/main.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "electron": "electron .",
+    "electron:dev": "concurrently \"npm run dev\" \"wait-on http://localhost:5173 && electron .\"",
+    "electron:build": "npm run build && electron-builder",
+    "electron:dist": "npm run build && electron-builder --publish=never",
+    "mobile:build": "npm run build && npx cap sync",
+    "mobile:android": "npx cap open android",
+    "mobile:apk": "npm run mobile:build && npx cap open android",
+    "build:android": "npm run build && npx cap sync android",
+    "github:apk": "echo 'APK will be built automatically by GitHub Actions'"
   },
   "dependencies": {
     "@ant-design/icons": "^5.6.1",
+    "@capacitor/android": "^7.4.3",
+    "@capacitor/cli": "^7.4.3",
+    "@capacitor/core": "^7.4.3",
     "@react-google-maps/api": "^2.20.6",
     "@tanstack/react-query": "^5.71.10",
     "@tanstack/react-query-devtools": "^5.71.10",
@@ -44,11 +57,42 @@
     "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react": "^5.0.0",
     "autoprefixer": "^10.4.21",
+    "concurrently": "^9.2.1",
+    "electron": "^38.2.1",
+    "electron-builder": "^26.0.12",
     "eslint": "^9.33.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
     "postcss": "^8.5.6",
-    "vite": "^7.1.2"
+    "vite": "^7.1.2",
+    "wait-on": "^9.0.1"
+  },
+  "build": {
+    "appId": "com.uher.todos-app",
+    "productName": "Todos Desktop App",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "node_modules/**/*"
+    ],
+    "extraMetadata": {
+      "main": "electron/main.js"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "public/vite.svg"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "public/vite.svg"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "public/vite.svg"
+    }
   }
 }
